@@ -62,9 +62,12 @@ public class EmployeeService {
 		{
 			if(employeesList.get(i).getId() == employeeId)
 			{
-				employeesList.get(i).setAdress(newEmployee.getAddress());
-				employeesList.get(i).setName(newEmployee.getName());
-				employeesList.get(i).setId(newEmployee.getId());
+				if(newEmployee.getAddress() != null)
+					employeesList.get(i).setAdress(newEmployee.getAddress());
+				if(newEmployee.getName() != null)
+					employeesList.get(i).setName(newEmployee.getName());
+				if(newEmployee.getId() != null)
+					employeesList.get(i).setId(newEmployee.getId());
 				empToUpdate = employeesList.get(i);
 			}
 		}

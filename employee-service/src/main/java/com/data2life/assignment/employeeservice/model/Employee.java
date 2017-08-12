@@ -6,6 +6,7 @@ public class Employee {
 	private String name;
 	private String address;
 	
+	public Employee(){}
 	
 	public Employee(String name, String address, Long id){
 		super();
