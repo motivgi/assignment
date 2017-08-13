@@ -9,14 +9,14 @@ import com.data2life.assignment.employeeservice.model.*;
 @Component
 public class EmployeeService {
 
-	private ArrayList<Employee> employeesList = new ArrayList<>();;
+	private ArrayList<EmployeePojo> employeesList = new ArrayList<>();;
 		
-	public ArrayList<Employee> retrieveAllEmployees()
+	public ArrayList<EmployeePojo> retrieveAllEmployees()
 	{
 		return employeesList;
 	}
 	
-	public Employee retrieveEmployee(Long employeeId)
+	public EmployeePojo retrieveEmployee(Long employeeId)
 	{
 		for(int i = 0; i < employeesList.size(); i++)
 		{
@@ -28,9 +28,9 @@ public class EmployeeService {
 		return null;
 	}
 	
-	public Employee deleteEmployee(Long employeeId)
+	public EmployeePojo deleteEmployee(Long employeeId)
 	{
-		Employee empToRemove = null;
+		EmployeePojo empToRemove = null;
 		for(int i = 0; i < employeesList.size(); i++)
 		{
 			if(employeesList.get(i).getId() == employeeId)
@@ -41,23 +41,23 @@ public class EmployeeService {
 		return empToRemove;
 	}
 	
-	public Employee addNewEmployee(Employee newEmployee)
+	public EmployeePojo addNewEmployee(EmployeePojo newEmployee)
 	{
 		for(int i = 0; i < employeesList.size(); i++)
 		{
-			if(employeesList.get(i).getId() == newEmployee.getId())
+			if(employeesList.get(i).getId() == newEmployee.getId())//already exist
 			{
-				return null;
+				return employeesList.get(i);
 			}
 		}
 		employeesList.add(newEmployee);
 		return newEmployee;
 	}
 	
-	public Employee updateEmployee(Long employeeId, Employee newEmployee)
+	public EmployeePojo updateEmployee(Long employeeId, EmployeePojo newEmployee)
 	{
 		
-		Employee empToUpdate = null;
+		EmployeePojo empToUpdate = null;
 		for(int i = 0; i < employeesList.size(); i++)
 		{
 			if(employeesList.get(i).getId() == employeeId)

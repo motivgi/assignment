@@ -24,21 +24,21 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 	
 	
-	@GetMapping("/employee/get/")
-	public List<Employee> retrieveAllEmployees() {
+	@GetMapping("/employee/")
+	public List<EmployeePojo> retrieveAllEmployees() {
 		return employeeService.retrieveAllEmployees(); 	
 	}
 	
-	@GetMapping("/employee/get/{employeeId}")
-	public Employee retrieveEmployee(@PathVariable Long employeeId) {
+	@GetMapping("/employee/{employeeId}")
+	public EmployeePojo retrieveEmployee(@PathVariable Long employeeId) {
 		return employeeService.retrieveEmployee(employeeId);
 	}
 	
 	
-	@PostMapping("/employee/add")
-	public ResponseEntity<Void> addNewEmployee(@RequestBody Employee newEmployee) {
+	@PostMapping("/employee/")
+	public ResponseEntity<Void> addNewEmployee(@RequestBody EmployeePojo newEmployee) {
 
-		Employee employee = employeeService.addNewEmployee(newEmployee);
+		EmployeePojo employee = employeeService.addNewEmployee(newEmployee);
 
 		if (employee == null)
 			return ResponseEntity.noContent().build();
@@ -49,13 +49,13 @@ public class EmployeeController {
 		return ResponseEntity.created(location).build();
 	}
 	
-	@PutMapping("/employee/update/{employeeId}")
-	public Employee retrieveDetailsForCourse(@PathVariable Long employeeId, @RequestBody Employee newEmployee) {
+	@PutMapping("/employee/{employeeId}")
+	public EmployeePojo retrieveDetailsForCourse(@PathVariable Long employeeId, @RequestBody EmployeePojo newEmployee) {
 		return employeeService.updateEmployee(employeeId, newEmployee);
 	}
 	
-	@DeleteMapping("/employee/delete/{employeeId}")
-	public Employee removeEmployee(@PathVariable Long employeeId) {
+	@DeleteMapping("/employee/{employeeId}")
+	public EmployeePojo removeEmployee(@PathVariable Long employeeId) {
 		return employeeService.deleteEmployee(employeeId);
 	}
 	
