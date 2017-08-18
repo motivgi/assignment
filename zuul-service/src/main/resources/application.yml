@@ -3,8 +3,11 @@ zuul:
   prefix: /api
   routes:
     employee-service:
-      path: /server/**
+      path: /employee-service/**
       url: http://localhost:8071
+    student-service:
+      path: /student-service/**
+      serviceId: STUDENT-SERVICE
 
 eureka:
   client:
