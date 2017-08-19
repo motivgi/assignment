@@ -66,6 +66,8 @@ public class EmployeeService {
 			empToUpdate.setAdress(newEmployee.getAddress());
 		if(newEmployee.getName() != null)
 			empToUpdate.setName(newEmployee.getName());
+		if(newEmployee.getSalary() != 0)
+			empToUpdate.setSalary(newEmployee.getSalary());
 		return employeeRepository.save(empToUpdate);
 	}
 	
