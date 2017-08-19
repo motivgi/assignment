@@ -20,30 +20,28 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 	
-	
 	@GetMapping("/student/")
-	public List<Student> retrieveAllEmployees() {
+	public List<Student> retrieveAllStudents() {
 		return studentService.retrieveAllStudents(); 	
 	}
 	
 	@GetMapping("/student/{studentId}")
-	public Student retrieveEmployee(@PathVariable int studentId) {
+	public Student retrieveStudent(@PathVariable int studentId) {
 		return studentService.retrieveStudent(studentId);
 	}
 	
-	
 	@PostMapping("/student/")
-	public Student addNewEmployee(@RequestBody Student newStudent) {
+	public Student addNewStudent(@RequestBody Student newStudent) {
 		return studentService.addNewStudent(newStudent);
 	}
 	
 	@PutMapping("/student/{studentId}")
-	public Student retrieveDetailsForCourse(@PathVariable int studentId, @RequestBody Student newStudent) {
+	public Student updateStudent(@PathVariable int studentId, @RequestBody Student newStudent) {
 		return studentService.updateStudent(studentId, newStudent);
 	}
 	
 	@DeleteMapping("/student/{studentId}")
-	public void removeEmployee(@PathVariable int studentId) {
+	public void deleteStudent(@PathVariable int studentId) {
 		studentService.deleteStudent(studentId);
 	}
 	

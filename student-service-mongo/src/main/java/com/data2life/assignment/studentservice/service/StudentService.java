@@ -13,7 +13,7 @@ import com.data2life.assignment.studentservice.repository.*;
 public class StudentService {
 
 	@Autowired
-	StudentRepository studentRepository;
+	private StudentRepository studentRepository;
 	private static StudentService studentService;
 	
 	private StudentService()
@@ -62,13 +62,17 @@ public class StudentService {
 	public Student updateStudent(int studentId, Student newStudent)
 	{
 		Student stuToUpdate = studentRepository.findOne(studentId);
-		if(newStudent.getAddress() != null)
-			stuToUpdate.setAdress(newStudent.getAddress());
-		if(newStudent.getName() != null)
-			stuToUpdate.setName(newStudent.getName());
-		if(newStudent.getAvg() != 0)
-			stuToUpdate.setAvg(newStudent.getAvg());
-		return studentRepository.save(stuToUpdate);
+		if(stuToUpdate != null)
+		{
+			if(newStudent.getAddress() != null)
+				stuToUpdate.setAdress(newStudent.getAddress());
+			if(newStudent.getName() != null)
+				stuToUpdate.setName(newStudent.getName());
+			if(newStudent.getAvg() != 0)
+				stuToUpdate.setAvg(newStudent.getAvg());
+			studentRepository.save(stuToUpdate);
+		}
+		return stuToUpdate;
 	}
 	
 }

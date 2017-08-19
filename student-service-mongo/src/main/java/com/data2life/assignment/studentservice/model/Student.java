@@ -12,11 +12,12 @@ public class Student {
 	
 	public Student(){}
 	
-	public Student(int id, String name, String address){
+	public Student(int id, String name, String address, float avg){
 		super();
 		this.name = name;
 		this.address = address;
 		this.id = id;
+		this.avg = avg;
 	}
 	
 	public int getId()
