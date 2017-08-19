@@ -13,7 +13,7 @@ import com.data2life.assignment.employeeservice.repository.*;
 public class EmployeeService {
 
 	@Autowired
-	EmployeeRepository employeeRepository;
+	private EmployeeRepository employeeRepository;
 	private static EmployeeService employeeService;
 	
 	private EmployeeService()
