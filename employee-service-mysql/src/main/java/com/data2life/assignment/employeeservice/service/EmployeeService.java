@@ -32,6 +32,7 @@ public class EmployeeService {
 	{
 		List<Employee> employees = new ArrayList<Employee>();
 		Iterable<Employee> empIterator = employeeRepository.findAll();
+		
 		for(Employee emp : empIterator)
 		{
 			employees.add(emp);
@@ -62,13 +63,19 @@ public class EmployeeService {
 	public Employee updateEmployee(int employeeId, Employee newEmployee)
 	{
 		Employee empToUpdate = employeeRepository.findOne(employeeId);
-		if(newEmployee.getAddress() != null)
-			empToUpdate.setAdress(newEmployee.getAddress());
-		if(newEmployee.getName() != null)
-			empToUpdate.setName(newEmployee.getName());
-		if(newEmployee.getSalary() != 0)
-			empToUpdate.setSalary(newEmployee.getSalary());
-		return employeeRepository.save(empToUpdate);
+		
+		if(empToUpdate != null)
+		{
+			if(newEmployee.getAddress() != null)
+				empToUpdate.setAdress(newEmployee.getAddress());
+			if(newEmployee.getName() != null)
+				empToUpdate.setName(newEmployee.getName());
+			if(newEmployee.getSalary() != 0)
+				empToUpdate.setSalary(newEmployee.getSalary());
+			
+			employeeRepository.save(empToUpdate);
+		}
+		return empToUpdate;
 	}
 	
 }
