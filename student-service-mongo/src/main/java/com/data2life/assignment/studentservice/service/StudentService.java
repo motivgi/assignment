@@ -45,9 +45,12 @@ public class StudentService {
 		return studentRepository.findOne(studentId);
 	}
 	
-	public void deleteStudent(int studentId)
-	{
-		studentRepository.delete(studentId);
+	public Student deleteStudent(int studentId)
+	{		
+		Student studentToDelete = studentRepository.findOne(studentId);
+		if(studentToDelete != null)
+			studentRepository.delete(studentId);
+		return studentToDelete;
 	}
 	
 	public Student addNewStudent(Student newStudent)
@@ -56,7 +59,7 @@ public class StudentService {
 		if(isStudentExist == null)
 			return studentRepository.save(newStudent);
 		
-		return isStudentExist;
+		return null;
 	}
 	
 	public Student updateStudent(int studentId, Student newStudent)

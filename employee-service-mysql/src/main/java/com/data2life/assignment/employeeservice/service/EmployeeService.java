@@ -46,18 +46,22 @@ public class EmployeeService {
 		return employeeRepository.findOne(employeeId);
 	}
 	
-	public void deleteEmployee(int employeeId)
+	public Employee deleteEmployee(int employeeId)
 	{
-		employeeRepository.delete(employeeId);
+		Employee employeeToDelete = employeeRepository.findOne(employeeId);
+		if(employeeToDelete != null)
+			employeeRepository.delete(employeeId);
+		return employeeToDelete;
 	}
 	
 	public Employee addNewEmployee(Employee newEmployee)
 	{
 		Employee isEmployeeExist = employeeRepository.findOne(newEmployee.getId());
-		if(isEmployeeExist == null)
+		if(isEmployeeExist == null){
 			return employeeRepository.save(newEmployee);
+		}
 		
-		return isEmployeeExist;
+		return null;
 	}
 	
 	public Employee updateEmployee(int employeeId, Employee newEmployee)
