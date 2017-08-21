@@ -21,7 +21,7 @@ public class EmployeeService {
 
 	}
 	
-	public static EmployeeService createInstance()
+	public synchronized static EmployeeService createInstance()
 	{
 		if(employeeService == null)
 			employeeService = new EmployeeService();

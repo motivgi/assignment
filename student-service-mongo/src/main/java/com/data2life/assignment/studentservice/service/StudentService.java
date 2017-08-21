@@ -21,7 +21,7 @@ public class StudentService {
 
 	}
 	
-	public static StudentService createInstance()
+	public synchronized static StudentService createInstance()
 	{
 		if(studentService == null)
 			studentService = new StudentService();
