@@ -24,7 +24,7 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 	
 	
-	@GetMapping("/employee/")
+	@GetMapping("/employee")
 	public List<EmployeePojo> retrieveAllEmployees() {
 		return employeeService.retrieveAllEmployees(); 	
 	}
@@ -35,7 +35,7 @@ public class EmployeeController {
 	}
 	
 	
-	@PostMapping("/employee/")
+	@PostMapping("/employee")
 	public ResponseEntity<Void> addNewEmployee(@RequestBody EmployeePojo newEmployee) {
 
 		EmployeePojo employee = employeeService.addNewEmployee(newEmployee);
