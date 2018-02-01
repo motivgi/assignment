@@ -25,7 +25,7 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 
 
-	@GetMapping("/employee/")
+	@GetMapping("/employee")
 	public ResponseEntity<List<Employee>> retrieveAllEmployees() {
 		List<Employee> employees = employeeService.retrieveAllEmployees();
 		if(employees == null || employees.isEmpty()){
@@ -44,7 +44,7 @@ public class EmployeeController {
 	}
 
 
-	@PostMapping("/employee/")
+	@PostMapping("/employee")
 	public ResponseEntity<Void> addNewEmployee(@RequestBody Employee newEmployee, UriComponentsBuilder ucBuilder) {
 		
 		Employee employee = employeeService.addNewEmployee(newEmployee);
